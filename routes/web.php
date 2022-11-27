@@ -17,4 +17,8 @@ use App\Http\Controllers\MainController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test', function(){
+    return "Test";
+});
 Route::get('/hello', [MainController::class, 'hello'])->name('hello');
+
