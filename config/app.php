@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://reanmakara.xyz/laravel'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY','lxvo35gvhmkpjypjtjbe09d7bmkh9ctn'),
+    'key' => env('APP_KEY', 'lxvo35gvhmkpjypjtjbe09d7bmkh9ctn'),
 
     'cipher' => 'AES-256-CBC',
 
