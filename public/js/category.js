@@ -3,7 +3,3 @@ function setActivePageLink(param) {
     var current_page = document.getElementById('current_page');
     
 }
-
-window.onload = function (){
-    alert('Hello');
-};

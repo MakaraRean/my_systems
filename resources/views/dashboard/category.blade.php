@@ -95,7 +95,7 @@
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
                                             <li id="page-{{ $i }}" class="paginate_button page-item active">
-                                                <a href="#" aria-controls="dataTable"
+                                                <a onClick="alert('Hello');" aria-controls="dataTable"
                                                     data-dt-idx="{{ $i }}" tabindex="0"
                                                     class="page-link">{{ $i }}</a>
                                             </li>
