@@ -39,8 +39,17 @@ class DashboardController extends Controller
     {
         if ($request->isMethod('GET')) {
             $number_of_category = DB::table('categories')->count();
-            $categories = DB::table('categories')->limit(10)->get();
-            return view('dashboard.category', ['number_of_category' => $number_of_category, 'categories' => $categories]);
+            $per_page = 10;
+            $categories = DB::table('categories')->limit($per_page)->get();
+            $page = $number_of_category / $per_page;
+            $all_page = 0;
+            for ($i = 0; $i < $page; $i++) {
+                $all_page += 1;
+            }
+            return view(
+                'dashboard.category',
+                ['number_of_category' => $number_of_category, 'categories' => $categories, 'all_page' => $all_page]
+            );
         }
     }
 }
