@@ -94,9 +94,13 @@
                                                 href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
-                                            <li class="paginate_button page-item active"><a href="#"
-                                                    aria-controls="dataTable" data-dt-idx="{{ $i }}"
-                                                    tabindex="0" class="page-link">{{ $i }}</a></li>
+                                            <li
+                                                class="paginate_button page-item 
+                                            @if ($i == 1) active @endif">
+                                                <a href="#" aria-controls="dataTable"
+                                                    data-dt-idx="{{ $i }}" tabindex="0"
+                                                    class="page-link">{{ $i }}</a>
+                                            </li>
                                         @endfor
                                         <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
