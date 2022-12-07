@@ -39,7 +39,7 @@ class DashboardController extends Controller
     {
         if ($request->isMethod('GET')) {
             $number_of_category = DB::table('categories')->count();
-            $categories = DB::table('categories')->get();
+            $categories = DB::table('categories')->limit(10);
             return view('dashboard.category', ['number_of_category' => $number_of_category, 'categories' => $categories]);
         }
     }
