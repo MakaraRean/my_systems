@@ -70,11 +70,11 @@
                                     <tbody>
                                         @foreach ($categories as $cat)
                                             <tr class="odd">
-                                                <td class="sorting_1">{{$cat->name}}</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>2008/11/28</td>
-                                                <td>2008/11/28</td>
+                                                <td class="sorting_1">{{ $cat->id }}</td>
+                                                <td>{{ $cat->name }}</td>
+                                                <td>{{ $cat->description }}</td>
+                                                <td>{{ $cat->created_at }}</td>
+                                                <td>{{ $cat->updated_at }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
