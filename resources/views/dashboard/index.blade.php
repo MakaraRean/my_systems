@@ -102,7 +102,7 @@
 
             <!-- Nav Item - Product -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('category', ['page' => 1]) }}">
+                <a class="nav-link" href="{{ route('categoryByPage', ['page' => 1]) }}">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Category</span></a>
             </li>
