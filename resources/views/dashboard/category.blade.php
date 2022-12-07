@@ -96,7 +96,7 @@
                                         @for ($i = 1; $i <= $all_page; $i++)
                                             <li id="page-{{ $i }}" class="paginate_button page-item 
                                             @if ($i == 1) active @endif">
-                                                <a onClick="setActivePageLink({{$i}})" aria-controls="dataTable"
+                                                <a onClick="setActivePageLink()" aria-controls="dataTable"
                                                     data-dt-idx="{{ $i }}" tabindex="0"
                                                     class="page-link">{{ $i }}</a>
                                             </li>
