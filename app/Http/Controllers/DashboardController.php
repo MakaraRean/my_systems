@@ -54,6 +54,8 @@ class DashboardController extends Controller
     }
 
     public function categoryByPage($page){
-        
+        $per_page = 10;
+        $categories = DB::table('categories')->offset(10,10)->get();
+        return $categories;
     }
 }
