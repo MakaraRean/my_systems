@@ -53,9 +53,10 @@ class DashboardController extends Controller
         }
     }
 
-    public function categoryByPage($page){
+    public function categoryByPage($page)
+    {
         $per_page = 10;
-        $offset = $page*$per_page;
+        $offset = ($page - 1) * $per_page;
         $categories = DB::table('categories')->offset($offset)->limit($per_page)->get();
         return $categories;
     }
