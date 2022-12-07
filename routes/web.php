@@ -25,3 +25,5 @@ Route::any('/login', [LoginController::class, 'login'])->name('login');
 //DashboardController
 Route::any('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::any('/chart', [DashboardController::class, 'chart'])->name('chart');
+Route::any('/table', [DashboardController::class, 'table'])->name('table');
+Route::any('/product', [DashboardController::class, 'product'])->name('product');

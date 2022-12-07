@@ -19,4 +19,18 @@ class DashboardController extends Controller
             return view('dashboard.chart');
         }
     }
+
+    public function table(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            return view('dashboard.table');
+        }
+    }
+
+    public function product(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            return view('dashboard.product');
+        }
+    }
 }
