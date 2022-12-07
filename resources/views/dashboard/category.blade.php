@@ -84,7 +84,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
                                 <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of {{ $number_of_category }} entries
+                                    Showing {{ $first_row }} to {{ $last_row }} of {{ $number_of_category }} entries
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-7">
@@ -97,9 +97,9 @@
                                             <li id="page-{{ $i }}"
                                                 class="paginate_button page-item
                                             @if ($i == $page_active) active @endif">
-                                                <a href="{{ route('categoryByPage',['page' => $i]) }}" aria-controls="dataTable"
-                                                    data-dt-idx="{{ $i }}" tabindex="0"
-                                                    class="page-link">{{ $i }}</a>
+                                                <a href="{{ route('categoryByPage', ['page' => $i]) }}"
+                                                    aria-controls="dataTable" data-dt-idx="{{ $i }}"
+                                                    tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
                                         <li class="paginate_button page-item next" id="dataTable_next"><a href="#"

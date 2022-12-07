@@ -64,6 +64,8 @@ class DashboardController extends Controller
             $all_page += 1;
         }
         $offset = ($active_page - 1) * $per_page;
+        $first_row = $offset + 1;
+        $last_row = $offset + $per_page;
         $categories = DB::table('categories')->offset($offset)->limit($per_page)->get();
         return view(
             'dashboard.category',
@@ -71,7 +73,9 @@ class DashboardController extends Controller
                 'categories' => $categories,
                 'page_active' => $active_page,
                 'number_of_category' => $number_of_category,
-                'all_page' => $all_page
+                'all_page' => $all_page,
+                'first_row' => $first_row,
+                'last_row' => $last_row
             ]
         );
     }
