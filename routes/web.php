@@ -15,11 +15,7 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/test', function () {
-    return "Test";
-});
-Route::get('/hello', [MainController::class, 'hello'])->name('hello');
+Route::get('/test', [MainController::class, 'test'])->name('test');
 //LoginController
 Route::any('/login', [LoginController::class, 'login'])->name('login');
 //DashboardController
