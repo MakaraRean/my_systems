@@ -68,7 +68,7 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($cat as $categories)
+                                        @foreach ($categories as $cat)
                                             <tr class="odd">
                                                 <td class="sorting_1">{{$cat->name}}</td>
                                                 <td>Accountant</td>
