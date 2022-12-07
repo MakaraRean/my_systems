@@ -95,8 +95,8 @@
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
                                             <li id="page-{{ $i }}"
-                                                class="paginate_button page-item 
-                                            @if ($i == 1) active @endif">
+                                                class="paginate_button page-item
+                                            @if ($i == $page_active) active @endif">
                                                 <a href="{{ route('categoryByPage',['page' => $i]) }}" aria-controls="dataTable"
                                                     data-dt-idx="{{ $i }}" tabindex="0"
                                                     class="page-link">{{ $i }}</a>

@@ -56,8 +56,22 @@ class DashboardController extends Controller
     public function categoryByPage($page)
     {
         $per_page = 10;
+        $number_of_category = DB::table('categories')->count();
+        $page = $number_of_category / $per_page;
+        $all_page = 0;
+        for ($i = 0; $i < $page; $i++) {
+            $all_page += 1;
+        }
         $offset = ($page - 1) * $per_page;
         $categories = DB::table('categories')->offset($offset)->limit($per_page)->get();
-        return $categories;
+        return view(
+            'dashboard.category',
+            [
+                'categories' => $categories,
+                'page_active' => $page,
+                'number_of_category' => $number_of_category,
+                'all_page' => $all_page
+            ]
+        );
     }
 }
