@@ -4,6 +4,6 @@ function setActivePageLink(param) {
     
 }
 
-window.onload(function () {
+window.onload = function (){
     alert('Hello');
-});
+}
