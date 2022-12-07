@@ -84,7 +84,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
                                 <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of {{ $number_of_category }} entries; all page : {{ $all_page }}
+                                    Showing 1 to 10 of {{ $number_of_category }} entries
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-7">
@@ -94,9 +94,7 @@
                                                 href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
-                                            <li
-                                                class="paginate_button page-item 
-                                            @if ($i == 1) active @endif">
+                                            <li id="page-{{ $i }}" class="paginate_button page-item active">
                                                 <a href="#" aria-controls="dataTable"
                                                     data-dt-idx="{{ $i }}" tabindex="0"
                                                     class="page-link">{{ $i }}</a>
@@ -113,6 +111,6 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <script src="js/category.js"></script>
 @endsection
