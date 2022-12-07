@@ -6,4 +6,4 @@ function setActivePageLink(param) {
 
 window.onload(function () {
     alert('Hello');
-})
+});
