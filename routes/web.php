@@ -25,3 +25,4 @@ Route::any('/chart', [DashboardController::class, 'chart'])->name('chart');
 Route::any('/table', [DashboardController::class, 'table'])->name('table');
 Route::any('/product', [DashboardController::class, 'product'])->name('product');
 Route::any('/category', [DashboardController::class, 'category'])->name('category');
+Route::get('/category/{page}', [DashboardController::class, 'categoryByPage'])->name('categoryByPage');

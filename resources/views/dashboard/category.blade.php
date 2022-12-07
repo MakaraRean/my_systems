@@ -94,9 +94,10 @@
                                                 href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
-                                            <li id="page-{{ $i }}" class="paginate_button page-item 
+                                            <li id="page-{{ $i }}"
+                                                class="paginate_button page-item 
                                             @if ($i == 1) active @endif">
-                                                <a onClick="setActivePageLink(1)" aria-controls="dataTable"
+                                                <a href="{{ route('categoryByPage',['page' => $i]) }}" aria-controls="dataTable"
                                                     data-dt-idx="{{ $i }}" tabindex="0"
                                                     class="page-link">{{ $i }}</a>
                                             </li>
