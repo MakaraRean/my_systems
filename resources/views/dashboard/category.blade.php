@@ -70,7 +70,7 @@
                                     <tbody>
                                         @foreach ($cat as $categories)
                                             <tr class="odd">
-                                                <td class="sorting_1">$cat->name</td>
+                                                <td class="sorting_1">{{$cat->name}}</td>
                                                 <td>Accountant</td>
                                                 <td>Tokyo</td>
                                                 <td>2008/11/28</td>
