@@ -53,8 +53,9 @@ class DashboardController extends Controller
         }
     }
 
-    public function categoryByPage($page)
+    public function categoryByPage(Request $request)
     {
+        $active_page = $request->page;
         $per_page = 10;
         $number_of_category = DB::table('categories')->count();
         $page = $number_of_category / $per_page;
@@ -68,7 +69,7 @@ class DashboardController extends Controller
             'dashboard.category',
             [
                 'categories' => $categories,
-                'page_active' => $page,
+                'page_active' => $active_page,
                 'number_of_category' => $number_of_category,
                 'all_page' => $all_page
             ]
