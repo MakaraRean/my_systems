@@ -68,13 +68,15 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr class="odd">
-                                            <td class="sorting_1">Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>2008/11/28</td>
-                                            <td>2008/11/28</td>
-                                        </tr>
+                                        @foreach ($cat as $categories)
+                                            <tr class="odd">
+                                                <td class="sorting_1">$cat->name</td>
+                                                <td>Accountant</td>
+                                                <td>Tokyo</td>
+                                                <td>2008/11/28</td>
+                                                <td>2008/11/28</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
