@@ -65,7 +65,10 @@ class DashboardController extends Controller
         }
         $offset = ($active_page - 1) * $per_page;
         $first_row = $offset + 1;
-        $last_row = $offset + $per_page;
+        if ($offset + $per_page > $number_of_category)
+            $last_row = $number_of_category;
+        else
+            $last_row = $offset + $per_page;
         $categories = DB::table('categories')->offset($offset)->limit($per_page)->get();
         return view(
             'dashboard.category',
