@@ -9,7 +9,7 @@ class MainController extends Controller
 {
     public function test()
     {
-        $users = DB::select('select * from users');
+        $users = DB::table('users')->get();
         return $users;
     }
 }

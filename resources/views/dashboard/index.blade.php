@@ -100,6 +100,13 @@
                     <span>Product</span></a>
             </li>
 
+            <!-- Nav Item - Product -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('category') }}">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Category</span></a>
+            </li>
+
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('chart') }}">

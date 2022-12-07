@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -31,6 +32,14 @@ class DashboardController extends Controller
     {
         if ($request->isMethod('GET')) {
             return view('dashboard.product');
+        }
+    }
+
+    public function category(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+            $number_of_category = DB::table('categories')->count();
+            return view('dashboard.category',['number_of_category' => $number_of_category]);
         }
     }
 }
