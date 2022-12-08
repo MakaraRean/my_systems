@@ -119,7 +119,7 @@
         function previousOnClick() {
             var previous = document.getElementById('previous');
             var next = document.getElementById('next');
-            alert(previous);
+            alert(previous.InnerHTML);
         }
     </script>
 @endsection
