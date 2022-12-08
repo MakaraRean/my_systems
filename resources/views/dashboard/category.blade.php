@@ -144,7 +144,7 @@
         window.onload = function() {
             var previous = document.getElementById('previous');
             var current_page = document.getElementById('current_page');
-            alert($all_page);
+            alert('1');
             if (current_page.value <= 1) {
                 previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
