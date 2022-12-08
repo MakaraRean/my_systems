@@ -112,6 +112,32 @@
                                     </ul>
                                 </div>
                             </div>
+
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous" id="previous"><a
+                                                href="{{ route('categoryByPage', ['page' => $page_active - 1]) }}"
+                                                aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                                class="page-link">Previous</a></li>
+                                        <input type="hidden" id="current_page" value="{{ $page_active }}">
+                                        <input type="hidden" id="all_page" value="{{ $all_page }}">
+                                        @for ($i = 1; $i <= $all_page; $i++)
+                                            <li id="page-{{ $i }}"
+                                                class="paginate_button page-item
+                                            @if ($i == $page_active) active @endif">
+                                                <a href="{{ route('categoryByPage', ['page' => $i]) }}"
+                                                    aria-controls="dataTable" data-dt-idx="{{ $i }}"
+                                                    tabindex="0" class="page-link">{{ $i }}</a>
+                                            </li>
+                                        @endfor
+                                        <li class="paginate_button page-item next" id="next"><a
+                                                href="{{ route('categoryByPage', ['page' => $page_active + 1]) }}"
+                                                aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                class="page-link">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
