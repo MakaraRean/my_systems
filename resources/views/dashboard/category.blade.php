@@ -90,8 +90,7 @@
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous" id="previous"
-                                            onclick="previousOnClick()"><a
+                                        <li class="paginate_button page-item previous" id="previous"><a
                                                 href="{{ route('categoryByPage', ['page' => $page_active - 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
@@ -106,8 +105,7 @@
                                                     tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
-                                        <li class="paginate_button page-item next" id="next"
-                                            onclick="nextOnClick()"><a
+                                        <li class="paginate_button page-item next" id="next"><a
                                                 href="{{ route('categoryByPage', ['page' => $page_active + 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
@@ -122,25 +120,24 @@
     </div>
     <script src="js/category.js"></script>
     <script>
-        function previousOnClick() {
-            var previous = document.getElementById('previous');
-            var next = document.getElementById('next');
-            var current_page = document.getElementById('current_page');
-            if (current_page.value <= 1) {
-                previous.setAttribute("class", "paginate_button page-item previous disabled");
-            }
-        }
+        // function previousOnClick() {
+        //     var previous = document.getElementById('previous');
+        //     var next = document.getElementById('next');
+        //     var current_page = document.getElementById('current_page');
+        //     if (current_page.value <= 1) {
+        //         previous.setAttribute("class", "paginate_button page-item previous disabled");
+        //     }
+        // }
 
-        function nextOnClick() {
-            var previous = document.getElementById('previous');
-            var next = document.getElementById('next');
-            var current_page = document.getElementById('current_page');
-            if (current_page.value >= 1 && current_page.value > $all_page) {
-                alert($all_page);
-                previous.setAttribute("class", "paginate_button page-item previous");
-            } else
-                previous.setAttribute("class", "paginate_button page-item next disabled");
-        }
+        // function nextOnClick() {
+        //     var previous = document.getElementById('previous');
+        //     var next = document.getElementById('next');
+        //     var current_page = document.getElementById('current_page');
+        //     if (current_page.value >= 1 && current_page.value > $all_page) {
+        //         previous.setAttribute("class", "paginate_button page-item previous");
+        //     } else
+        //         previous.setAttribute("class", "paginate_button page-item next disabled");
+        // }
 
         window.onload = function() {
             var previous = document.getElementById('previous');
@@ -150,7 +147,6 @@
             if (current_page.value <= 1) {
                 previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
-            alert(all_page.value);
             if (current_page.value == all_page.value) {
                 next.setAttribute("class", "paginate_button page-item next disabled");
             }
