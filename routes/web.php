@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -26,3 +27,7 @@ Route::any('/table', [DashboardController::class, 'table'])->name('table');
 Route::any('/product', [DashboardController::class, 'product'])->name('product');
 // Route::any('/category', [DashboardController::class, 'category'])->name('category');
 Route::get('/category', [DashboardController::class, 'categoryByPage'])->name('categoryByPage');
+//CategoryController
+Route::prefix('category')->group(function () {
+    Route::any('/add', [CategoryController::class, 'add'])->name('add_category');
+});
