@@ -106,6 +106,7 @@
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link" onclick="test()">Next</a></li>
                                     </ul>
+                                    <button onclick="test();">test</button>
                                 </div>
                             </div>
                         </div>
