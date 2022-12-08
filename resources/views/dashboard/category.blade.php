@@ -130,8 +130,8 @@
             var previous = document.getElementById('previous');
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
+            alert(current_page.value)
             if (current_page.value > 1){
-                alert('page > 1')
                 previous.setAttribute("class", "paginate_button page-item previous");
             }
         }
