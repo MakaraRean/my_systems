@@ -90,8 +90,8 @@
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous" id="previous"
-                                            onclick="previousOnClick()"><a href="#" aria-controls="dataTable"
+                                        <li class="paginate_button page-item previous disabled" id="previous"
+                                            onclick="previousOnClick()"><a href="{{route('categoryByPage', ['page' => $page_active-1 ])}}" aria-controls="dataTable"
                                                 data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
                                         <input type="hidden" id="current_page" value="{{ $page_active }}">
                                         @for ($i = 1; $i <= $all_page; $i++)
@@ -121,7 +121,18 @@
             var previous = document.getElementById('previous');
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
-            alert('Current page is : '+current_page.value);
+            if (current_page.value <= 1){
+                previous.className = "paginate_button page-item previous disabled";
+            }
+        }
+
+        function nextOnClick() {
+            var previous = document.getElementById('previous');
+            var next = document.getElementById('next');
+            var current_page = document.getElementById('current_page');
+            if (current_page.value > 1){
+                previous.className = "paginate_button page-item previous";
+            }
         }
     </script>
 @endsection
