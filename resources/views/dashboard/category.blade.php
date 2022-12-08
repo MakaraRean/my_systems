@@ -122,7 +122,7 @@
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
             if (current_page.value <= 1){
-                previous.className = "paginate_button page-item previous disabled";
+                previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
         }
 
@@ -131,7 +131,7 @@
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
             if (current_page.value > 1){
-                previous.className = "paginate_button page-item previous";
+                previous.setAttribute("class", "paginate_button page-item previous");
             }
         }
     </script>
