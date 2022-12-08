@@ -138,7 +138,7 @@
                 alert($all_page)
                 previous.setAttribute("class", "paginate_button page-item previous");
             } else
-                previous.setAttribute("class", "paginate_button page-item previous disabled");
+                previous.setAttribute("class", "paginate_button page-item next disabled");
         }
 
         window.onload = function() {
