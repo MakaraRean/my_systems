@@ -150,7 +150,8 @@
             if (current_page.value <= 1) {
                 previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
-            if (current_page.value == all_page) {
+            alert(all_page.value);
+            if (current_page.value == all_page.value) {
                 next.setAttribute("class", "paginate_button page-item next disabled");
             }
         }
