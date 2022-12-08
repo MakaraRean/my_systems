@@ -116,4 +116,9 @@
         </div>
     </div>
     <script src="js/category.js"></script>
+    <script>
+        function test() {
+            alert('Hello');
+        }
+    </script>
 @endsection
