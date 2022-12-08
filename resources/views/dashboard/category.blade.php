@@ -103,7 +103,7 @@
                                                     tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
-                                        <li class="paginate_button page-item next" id="next" onclick="nextOnClick()"><a href="#"
+                                        <li class="paginate_button page-item next" id="next" onclick="nextOnClick()"><a href="{{route('categoryByPage', ['page' => $page_active+1 ])}}"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
                                     </ul>
