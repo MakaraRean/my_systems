@@ -90,7 +90,7 @@
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="previous"><a
+                                        <li class="paginate_button page-item previous disabled" id="previous" onclick="previousOnClick()"><a
                                                 href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
@@ -106,7 +106,6 @@
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
                                     </ul>
-                                    <button onclick="test();">test</button>
                                 </div>
                             </div>
                         </div>
