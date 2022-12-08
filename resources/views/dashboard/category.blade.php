@@ -90,7 +90,7 @@
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="previous" onclick="previousOnClick()"><a
+                                        <li class="paginate_button page-item previous" id="previous" onclick="previousOnClick()"><a
                                                 href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         @for ($i = 1; $i <= $all_page; $i++)
@@ -119,7 +119,7 @@
         function previousOnClick() {
             var previous = document.getElementById('previous');
             var next = document.getElementById('next');
-            alert(previous.InnerHTML);
+            alert(previous.value);
         }
     </script>
 @endsection
