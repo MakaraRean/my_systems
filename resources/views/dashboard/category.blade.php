@@ -96,6 +96,7 @@
                                                 aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
                                         <input type="hidden" id="current_page" value="{{ $page_active }}">
+                                        <input type="hidden" id="all_page" value="{{ $all_page }}">
                                         @for ($i = 1; $i <= $all_page; $i++)
                                             <li id="page-{{ $i }}"
                                                 class="paginate_button page-item
@@ -144,11 +145,13 @@
         window.onload = function() {
             var previous = document.getElementById('previous');
             var current_page = document.getElementById('current_page');
-            alert('1');
+            var all_page = document.getElementById('all_page');
             if (current_page.value <= 1) {
                 previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
-            // if (current_page.value == )
+            if (current_page.value == all_page){
+                previous.setAttribute("class", "paginate_button page-item next disabled");
+            }
         }
     </script>
 @endsection
