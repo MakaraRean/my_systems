@@ -103,7 +103,7 @@
                                                     tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
-                                        <li class="paginate_button page-item next" id="next"><a href="#"
+                                        <li class="paginate_button page-item next" id="next" onclick="nextOnClick()"><a href="#"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
                                     </ul>
