@@ -134,10 +134,11 @@
             var previous = document.getElementById('previous');
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
-            if (current_page.value >= 1) {
-                alert('page >= 1');
+            if (current_page.value >= 1 && current_page.value > $all_page) {
+                alert($all_page)
                 previous.setAttribute("class", "paginate_button page-item previous");
-            }
+            } else
+                previous.setAttribute("class", "paginate_button page-item previous disabled");
         }
 
         window.onload = function() {
