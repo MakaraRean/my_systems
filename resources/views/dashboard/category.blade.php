@@ -106,7 +106,7 @@
                                                     tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
-                                        <li class="paginate_button page-item next disabled" id="next"
+                                        <li class="paginate_button page-item next" id="next"
                                             onclick="nextOnClick()"><a
                                                 href="{{ route('categoryByPage', ['page' => $page_active + 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
@@ -144,13 +144,14 @@
 
         window.onload = function() {
             var previous = document.getElementById('previous');
+            var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
             var all_page = document.getElementById('all_page');
             if (current_page.value <= 1) {
                 previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
             if (current_page.value == all_page) {
-                previous.setAttribute("class", "paginate_button page-item next disabled");
+                next.setAttribute("class", "paginate_button page-item next disabled");
             }
         }
     </script>
