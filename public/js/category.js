@@ -4,3 +4,6 @@ function setActivePageLink(param) {
     alert(page_to_active);
 
 }
+function test() {
+    alert('Hello');
+}

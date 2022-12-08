@@ -104,7 +104,7 @@
                                         @endfor
                                         <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                                class="page-link">Next</a></li>
+                                                class="page-link" onclick="test()">Next</a></li>
                                     </ul>
                                 </div>
                             </div>
