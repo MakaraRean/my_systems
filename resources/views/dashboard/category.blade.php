@@ -131,6 +131,7 @@
             var next = document.getElementById('next');
             var current_page = document.getElementById('current_page');
             if (current_page.value > 1){
+                alert('page > 1')
                 previous.setAttribute("class", "paginate_button page-item previous");
             }
         }
