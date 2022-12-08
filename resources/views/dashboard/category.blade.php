@@ -90,7 +90,7 @@
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="previous"
+                                        <li class="paginate_button page-item previous" id="previous"
                                             onclick="previousOnClick()"><a
                                                 href="{{ route('categoryByPage', ['page' => $page_active - 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="0" tabindex="0"
@@ -137,6 +137,14 @@
             if (current_page.value >= 1) {
                 alert('page >= 1');
                 previous.setAttribute("class", "paginate_button page-item previous");
+            }
+        }
+
+        window.onload = function() {
+            var previous = document.getElementById('previous');
+            var current_page = document.getElementById('current_page');
+            if (current_page.value <= 1) {
+                previous.setAttribute("class", "paginate_button page-item previous disabled");
             }
         }
     </script>
