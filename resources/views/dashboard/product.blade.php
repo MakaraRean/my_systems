@@ -8,7 +8,7 @@
                 <h1 class="h3 mb-0 text-gray-800">Products</h1>
             </div>
             <div style="float:right;">
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                <a href="{{ route('add_product') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i> Add</a>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -16,7 +16,8 @@
                         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
         </div>
-        <br><hr>
+        <br>
+        <hr>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -49,35 +50,41 @@
                                         <tr role="row">
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1" aria-sort="ascending"
-                                                aria-label="Name: activate to sort column descending" style="width: 64px;">
-                                                Name</th>
+                                                aria-label="Name: activate to sort column descending" style="width: 30px;">
+                                                ID</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Position: activate to sort column ascending"
-                                                style="width: 75px;">Position</th>
+                                                style="width: 25px;">Code</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Office: activate to sort column ascending"
-                                                style="width: 53px;">Office</th>
+                                                style="width: 53px;">Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Age: activate to sort column ascending"
-                                                style="width: 31px;">Age</th>
+                                                style="width: 31px;">Qty</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Start date: activate to sort column ascending"
-                                                style="width: 69px;">Start date</th>
+                                                style="width: 69px;">Sell Price</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                colspan="1" aria-label="Salary: activate to sort column ascending"
-                                                style="width: 67px;">Salary</th>
+                                                colspan="1" aria-label="Start date: activate to sort column ascending"
+                                                style="width: 69px;">Purchase Price</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="1" aria-label="Start date: activate to sort column ascending"
+                                                style="width: 69px;">Desc</th>
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
-                                        <tr class="odd">
-                                            <td class="sorting_1">Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
+                                        @foreach ($data as $obj)
+                                            <tr class="odd">
+                                                <td class="sorting_1">{{ $obj->id }}</td>
+                                                <td>{{ $obj->code }}</td>
+                                                <td>{{ $obj->name }}</td>
+                                                <td>{{ $obj->qty }}</td>
+                                                <td>{{ $obj->sell_price }}</td>
+                                                <td>{{ $obj->purchase_price }}</td>
+                                                <td>{{ $obj->desc }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -85,33 +92,29 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
                                 <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of 57 entries</div>
+                                    Showing {{ $first_row }} to {{ $last_row }} of {{ $number_of_product }} entries
+                                </div>
                             </div>
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
-                                                href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                        <li class="paginate_button page-item previous" id="previous"><a
+                                                href="{{ route('product', ['page' => $page_active - 1]) }}"
+                                                aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
-                                        <li class="paginate_button page-item active"><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="1" tabindex="0"
-                                                class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="2" tabindex="0"
-                                                class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="3" tabindex="0"
-                                                class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="4" tabindex="0"
-                                                class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="5" tabindex="0"
-                                                class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="6" tabindex="0"
-                                                class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
+                                        <input type="hidden" id="current_page" value="{{ $page_active }}">
+                                        <input type="hidden" id="all_page" value="{{ $all_page }}">
+                                        @for ($i = 1; $i <= $all_page; $i++)
+                                            <li id="page-{{ $i }}"
+                                                class="paginate_button page-item
+                                        @if ($i == $page_active) active @endif">
+                                                <a href="{{ route('product', ['page' => $i]) }}"
+                                                    aria-controls="dataTable" data-dt-idx="{{ $i }}"
+                                                    tabindex="0" class="page-link">{{ $i }}</a>
+                                            </li>
+                                        @endfor
+                                        <li class="paginate_button page-item next" id="next"><a
+                                                href="{{ route('product', ['page' => $page_active + 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
                                     </ul>
@@ -122,6 +125,39 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <script src="js/category.js"></script>
+    <script>
+        // function previousOnClick() {
+        //     var previous = document.getElementById('previous');
+        //     var next = document.getElementById('next');
+        //     var current_page = document.getElementById('current_page');
+        //     if (current_page.value <= 1) {
+        //         previous.setAttribute("class", "paginate_button page-item previous disabled");
+        //     }
+        // }
+
+        // function nextOnClick() {
+        //     var previous = document.getElementById('previous');
+        //     var next = document.getElementById('next');
+        //     var current_page = document.getElementById('current_page');
+        //     if (current_page.value >= 1 && current_page.value > $all_page) {
+        //         previous.setAttribute("class", "paginate_button page-item previous");
+        //     } else
+        //         previous.setAttribute("class", "paginate_button page-item next disabled");
+        // }
+
+        window.onload = function() {
+            var previous = document.getElementById('previous');
+            var next = document.getElementById('next');
+            var current_page = document.getElementById('current_page');
+            var all_page = document.getElementById('all_page');
+            if (current_page.value <= 1) {
+                previous.setAttribute("class", "paginate_button page-item previous disabled");
+            }
+            if (current_page.value == all_page.value) {
+                next.setAttribute("class", "paginate_button page-item next disabled");
+            }
+        }
+    </script>
 @endsection

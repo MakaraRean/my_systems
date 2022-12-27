@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @yield('header')
 
 </head>
@@ -84,9 +85,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="{{ route('add_category') }}">Add Category</a>
+                        <a class="collapse-item" href="{{ route('add_product') }}">Add Product</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
 
             <!-- Nav Item - Product -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('categoryByPage', ['page' => 1]) }}">
+                <a class="nav-link" href="{{ route('category', ['page' => 1]) }}">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Category</span></a>
             </li>
