@@ -19,6 +19,6 @@ class Product extends Model
         'unit',
         'blister_per_base',
         'tablet_per_blister',
-        'qty',
+        'qty_type',
     ];
 }
