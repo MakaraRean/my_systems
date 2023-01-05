@@ -74,7 +74,7 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($data as $obj)
+                                        @foreach ($data['products'] as $obj)
                                             <tr class="odd">
                                                 <td class="sorting_1">{{ $obj->id }}</td>
                                                 <td>{{ $obj->code }}</td>
@@ -92,29 +92,31 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
                                 <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                                    Showing {{ $first_row }} to {{ $last_row }} of {{ $number_of_product }} entries
+                                    Showing {{ $data['first_row'] }} to {{ $data['last_row'] }} of
+                                    {{ $data['total_record'] }}
+                                    entries
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
                                         <li class="paginate_button page-item previous" id="previous"><a
-                                                href="{{ route('product', ['page' => $page_active - 1]) }}"
+                                                href="{{ route('product', ['page' => $data['current_page'] - 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="0" tabindex="0"
                                                 class="page-link">Previous</a></li>
-                                        <input type="hidden" id="current_page" value="{{ $page_active }}">
-                                        <input type="hidden" id="all_page" value="{{ $all_page }}">
-                                        @for ($i = 1; $i <= $all_page; $i++)
+                                        <input type="hidden" id="current_page" value="{{ $data['current_page'] }}">
+                                        <input type="hidden" id="all_page" value="{{ $data['total_page'] }}">
+                                        @for ($i = 1; $i <= $data['total_page']; $i++)
                                             <li id="page-{{ $i }}"
                                                 class="paginate_button page-item
-                                        @if ($i == $page_active) active @endif">
+                                        @if ($i == $data['current_page']) active @endif">
                                                 <a href="{{ route('product', ['page' => $i]) }}"
                                                     aria-controls="dataTable" data-dt-idx="{{ $i }}"
                                                     tabindex="0" class="page-link">{{ $i }}</a>
                                             </li>
                                         @endfor
                                         <li class="paginate_button page-item next" id="next"><a
-                                                href="{{ route('product', ['page' => $page_active + 1]) }}"
+                                                href="{{ route('product', ['page' => $data['current_page'] + 1]) }}"
                                                 aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                                 class="page-link">Next</a></li>
                                     </ul>

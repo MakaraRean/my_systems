@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
+use App\Logic\ProductLogic;
 
 class DashboardController extends Controller
 {
@@ -66,35 +67,41 @@ class DashboardController extends Controller
         }
     }
 
-    public function product(Request $request)
+    public function product(Request $r)
     {
-        $active_page = $request->page ?? 1;
-        $per_page = 10;
-        $number_of_product = DB::table('products')->count();
-        $page = $number_of_product / $per_page;
-        $all_page = 0;
-        for ($i = 0; $i < $page; $i++) {
-            $all_page += 1;
-        }
-        $offset = ($active_page - 1) * $per_page;
-        $first_row = $offset + 1;
-        if ($offset + $per_page > $number_of_product)
-            $last_row = $number_of_product;
-        else
-            $last_row = $offset + $per_page;
-        $data = DB::table('products')->offset($offset)->limit($per_page)->get();
+        $product = new ProductLogic();
+        $data = $product->get_products($r);
         return view(
             'dashboard.product',
-            [
-                'data' => $data,
-                'first_row' => $first_row,
-                'last_row' => $last_row,
-                'all_page' => $all_page,
-                'page_active' => $active_page,
-                'number_of_product' => $number_of_product,
-
-            ]
+            ['data' => $data]
         );
+        // $active_page = $request->page ?? 1;
+        // $per_page = 10;
+        // $number_of_product = DB::table('products')->count();
+        // $page = $number_of_product / $per_page;
+        // $all_page = 0;
+        // for ($i = 0; $i < $page; $i++) {
+        //     $all_page += 1;
+        // }
+        // $offset = ($active_page - 1) * $per_page;
+        // $first_row = $offset + 1;
+        // if ($offset + $per_page > $number_of_product)
+        //     $last_row = $number_of_product;
+        // else
+        //     $last_row = $offset + $per_page;
+        // $data = DB::table('products')->offset($offset)->limit($per_page)->get();
+        // return view(
+        //     'dashboard.product',
+        //     [
+        //         'data' => $data,
+        //         'first_row' => $first_row,
+        //         'last_row' => $last_row,
+        //         'all_page' => $all_page,
+        //         'page_active' => $active_page,
+        //         'number_of_product' => $number_of_product,
+
+        //     ]
+        // );
     }
 
     public function category(Request $request)

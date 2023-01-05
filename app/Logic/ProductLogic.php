@@ -1,18 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Logic;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class MainController extends Controller
-{
-    public function test()
-    {
-        $users = DB::table('users')->get();
-        return $users;
-    }
 
+class ProductLogic
+{
     public function get_products(Request $request)
     {
         $total_record = DB::table('products')->count();
@@ -36,8 +31,8 @@ class MainController extends Controller
         $data = array(
             'first_row' => $first_row,
             'last_row' => $last_row,
-            'all_page' => $all_page,
-            'page_active' => $active_page,
+            'total_page' => $all_page,
+            'current_page' => $active_page,
             'display_record' => $display_record,
             'total_record' => $total_record,
             "products" => $products
