@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\UnitController;
 
 /*
@@ -39,7 +41,11 @@ Route::prefix('product')->group(function () {
     Route::any('/add', [ProductController::class, 'add'])->name('add_product');
 });
 
-//UnitController
-Route::prefix('unit')->group(function () {
-    Route::any('/add', [UnitController::class, 'add'])->name('add_unit');
+//OrderController
+Route::prefix('order')->group(function () {
+    Route::any('/index', [OrderController::class, 'index'])->name('order_index');
+});
+
+Route::prefix('security')->group(function () {
+    Route::GET('/forget-password', [SecurityController::class, 'forget_password'])->name('forget_password');
 });

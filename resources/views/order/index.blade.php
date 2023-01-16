@@ -78,7 +78,7 @@
 
     </div>
 
-    <script>
+    {{-- <script>
         function checkboxOnClick() {
             var quantity_div = document.getElementById('quantity-div');
             var checkbox_stock = document.getElementById('checkbox_stock');
@@ -102,5 +102,5 @@
             }
             code.value = result.toUpperCase();
         }
-    </script>
+    </script> --}}
 @endsection
