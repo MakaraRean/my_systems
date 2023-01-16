@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\WeddingSecurityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,9 @@ Route::prefix('order')->group(function () {
 
 Route::prefix('security')->group(function () {
     Route::GET('/forget-password', [SecurityController::class, 'forget_password'])->name('forget_password');
+});
+
+//Wedding appliction
+Route::prefix('wedding')->group(function () {
+    Route::GET('/login', [WeddingSecurityController::class, 'login'])->name('wedding_login');
 });
