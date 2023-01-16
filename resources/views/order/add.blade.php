@@ -130,7 +130,7 @@
 
     <script>
         async function check_prodct() {
-            var id = document.getElementById('product_id');
+            let id = document.getElementById('product_id');
             var result_message = document.getElementById('result_message');
             var btAdd = document.getElementById('bt_add');
             var loader = document.getElementById('loader');

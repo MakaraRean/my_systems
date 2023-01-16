@@ -43,8 +43,12 @@ class ProductLogic
     public function check_product(Request $request)
     {
         $id = $request->product_id;
+        // $product = DB::table('products')
+        //     ->where([['is_active', '=', 1], ['code', '=', $id]])
+        //     ->orWhere('id', '=', $id)->first();
         $product = DB::table('products')
-            ->where([['is_active', '=', 1], ['code', '=', $id]])
+            ->where('is_active', '=', 1)
+            ->where('code', '=', $id)
             ->orWhere('id', '=', $id)->first();
         if ($product) {
             return ApiResponse::found();
