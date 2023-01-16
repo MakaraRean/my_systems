@@ -40,13 +40,14 @@ class ProductLogic
         return $data;
     }
 
-    public function check_product(Request $request){
+    public function check_product(Request $request)
+    {
         $id = $request->product_id;
         $product = DB::table('products')
-        ->where([['is_active','=',1],['code', '=', $id]])
-        ->orWhere('id', '=', $id)->first();
-        if ($product){
-            return $product;
+            ->where([['is_active', '=', 1], ['code', '=', $id]])
+            ->orWhere('id', '=', $id)->get();
+        if ($product) {
+            return ApiResponse::found();
         }
         return ApiResponse::not_found();
     }
@@ -54,9 +55,9 @@ class ProductLogic
     public function search_product(String $id = null)
     {
         $product = DB::table('products')
-        ->where('is_active','=',1)
-        ->where('code', '=', $id)
-        ->orWhere('id', '=', $id)->first();
+            ->where('is_active', '=', 1)
+            ->where('code', '=', $id)
+            ->orWhere('id', '=', $id)->first();
         return $product;
     }
 }

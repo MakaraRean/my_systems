@@ -67,12 +67,18 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <label for="product" class="control-label">Product</label>
                             <input oninput="check_prodct()" autocomplete="off" class="form-control"id="product_id"
                                 name="product_id" type="text" placeholder="Product ID">
                             <span id="result_message"></span>
+
                         </div>
+
+                        <div class="col-md-1" id="loader" style="display: none">
+                            <img src="{{ asset('img/loading-thinking.gif') }}" width="50px" style="margin-top: 50%">
+                        </div>
+
                         <div class="col-md-4">
                             <label for="qty" class="control-label">Quantity</label>
                             <input autocomplete="off" class="form-control"id="qty" name="qty" type="number"
@@ -127,6 +133,7 @@
             var id = document.getElementById('product_id');
             var result_message = document.getElementById('result_message');
             var btAdd = document.getElementById('bt_add');
+            var loader = document.getElementById('loader');
 
             // $.ajax({
             //     url: "{{ route('add_order') }}",
@@ -140,11 +147,13 @@
             // });
 
             const url = "https://laravel.reanmakara.xyz/api/check_product?product_id=" + id.value;
-            result_message.innerHTML = "Loading...";
+            // const url = "https://localhost:8000/api/check_product?product_id=" + id.value;
+            loader.style.display = "block";
             const response = await fetch(url);
+            loader.style.display = "none";
             // var data = await response.json();
             console.log(response);
-            if (response.ok) {
+            if (response.status == 200) {
                 result_message.innerHTML = "This product is available.";
                 result_message.style.color = "green";
                 btAdd.disabled = false;

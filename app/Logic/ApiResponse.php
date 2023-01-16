@@ -36,4 +36,15 @@ class ApiResponse
             404
         );
     }
+
+    public static function found()
+    {
+        return response()->json(
+            [
+                'message' => 'Found',
+                'message_kh' => 'ត្រូវបានរកឃើញ'
+            ],
+            200
+        );
+    }
 }
