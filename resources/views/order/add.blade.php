@@ -139,7 +139,7 @@
             //     }
             // });
 
-            const url = "http://127.0.0.1:8000/api/check_product?product_id=" + id.value;
+            const url = "http://0.0.0.0:8000/api/check_product?product_id=" + id.value;
             result_message.innerHTML = "Loading...";
             const response = await fetch(url);
             // var data = await response.json();
