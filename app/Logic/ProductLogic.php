@@ -45,7 +45,7 @@ class ProductLogic
         $id = $request->product_id;
         $product = DB::table('products')
             ->where([['is_active', '=', 1], ['code', '=', $id]])
-            ->orWhere('id', '=', $id)->get();
+            ->orWhere('id', '=', $id)->first();
         if ($product) {
             return ApiResponse::found();
         }
