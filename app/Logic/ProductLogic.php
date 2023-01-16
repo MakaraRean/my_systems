@@ -39,4 +39,24 @@ class ProductLogic
         );
         return $data;
     }
+
+    public function check_product(Request $request){
+        $id = $request->product_id;
+        $product = DB::table('products')
+        ->where([['is_active','=',1],['code', '=', $id]])
+        ->orWhere('id', '=', $id)->first();
+        if ($product){
+            return $product;
+        }
+        return ApiResponse::not_found();
+    }
+
+    public function search_product(String $id = null)
+    {
+        $product = DB::table('products')
+        ->where('is_active','=',1)
+        ->where('code', '=', $id)
+        ->orWhere('id', '=', $id)->first();
+        return $product;
+    }
 }

@@ -5,15 +5,14 @@ namespace App\Logic;
 
 class ApiResponse
 {
-    public static function error_response($message, $message_kh, $error, $code)
+    public function standard_response($message, $message_kh, $code)
     {
         return response()->json(
             [
-                'message' => $message ?? 'Error',
-                'message_kh' => $message_kh ?? 'មានបញ្ហា',
-                'error' => $error
+                'message' => $message ?? 'Success',
+                'message_kh' => $message_kh ?? 'ជោគជ័យ'
             ],
-            $code ?? 400
+            $code ?? 200
         );
     }
     public static function create_success()
@@ -27,9 +26,14 @@ class ApiResponse
         );
     }
 
-
-    public static function create_failed()
+    public static function not_found()
     {
-        return response()->json(['message' => 'Create failed', 'message_kh' => 'ការបង្កើតមិនជោគជ័យ'], 400);
+        return response()->json(
+            [
+                'message' => 'Not Found',
+                'message_kh' => 'មិនត្រូវបានរកឃើញ'
+            ],
+            404
+        );
     }
 }

@@ -4,14 +4,14 @@
     <style>
         .container-row {
             margin-inline-start: 25%;
-            /* background-color: red; */
+            background-color: red;
             width: auto;
 
         }
 
         .container-kk {
             background-color: #f4f4f4;
-            /* color: red; */
+            color: red;
             height: 80%;
             margin-left: 15%;
             margin-right: 15%;
@@ -42,11 +42,6 @@
                                 @if (session('message'))
                                     <div class="alert alert-success">
                                         {{ session('message') }}
-                                    </div>
-                                @endif
-                                @if (session('exists_message'))
-                                    <div class="alert alert-danger">
-                                        {{ session('exists_message') }}
                                     </div>
                                 @endif
                                 <label for="name" class="control-label">ឈ្មោះ/Name</label>

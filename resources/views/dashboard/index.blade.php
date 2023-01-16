@@ -87,7 +87,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="{{ route('add_category') }}">Add Category</a>
                         <a class="collapse-item" href="{{ route('add_product') }}">Add Product</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="{{ route('new_order') }}">New Order</a>
                     </div>
                 </div>
             </li>
