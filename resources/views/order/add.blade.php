@@ -146,8 +146,8 @@
             //     }
             // });
 
-            const url = "https://laravel.reanmakara.xyz/api/check_product?product_id=" + id.value;
-            // const url = "https://localhost:8000/api/check_product?product_id=" + id.value;
+            // const url = "https://laravel.reanmakara.xyz/api/check_product?product_id=" + id.value;
+            const url = "http://127.0.0.1:8000/api/check_product?product_id=" + id.value;
             loader.style.display = "block";
             const response = await fetch(url);
             loader.style.display = "none";

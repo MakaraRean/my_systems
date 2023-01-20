@@ -2,6 +2,7 @@
 
 namespace App\Logic;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,7 +48,7 @@ class ProductLogic
         //     ->where([['is_active', '=', 1], ['code', '=', $id]])
         //     ->orWhere('id', '=', $id)->first();
         $product = $this->search_product($id);
-        if ($product) {
+        if (count($product) != 0) {
             return ApiResponse::found();
         }
         return ApiResponse::not_found();
@@ -55,10 +56,22 @@ class ProductLogic
 
     public function search_product(String $id = null)
     {
-        $product = DB::table('products')
-            ->where('is_active', '=', 1)
-            ->where('code', '=', $id)
-            ->orWhere('id', '=', $id)->first();
+        // $product = DB::table('products')
+        //     ->where('is_active', '=', 1)
+        //     ->where('code', '=', $id)
+        //     ->orWhere('id', '=', $id)->first();
+        $product = Product::where('code', '=', $id)->first();
+        if (!count($product)) {
+            $product = Product::where('id', '=', $id)->first();
+            if (count($product)) {
+                $active = $product->is_active;
+                if ($active == 1) {
+                    return $product;
+                }
+                return 0;
+            }
+            return 0;
+        }
         return $product;
     }
 }

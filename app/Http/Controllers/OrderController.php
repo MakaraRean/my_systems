@@ -21,7 +21,7 @@ class OrderController extends Controller
         $product_logic = new ProductLogic;
         $product = $product_logic->search_product($pid);
         if ($product) {
-            return $product;
+            return $pid;
         }
         return redirect()->route('new_order')->with('error_message', "Product $pid not found!");
     }
