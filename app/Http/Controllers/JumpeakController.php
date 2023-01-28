@@ -19,9 +19,24 @@ class JumpeakController extends Controller
     public function new_record()
     {
         try {
-            $save = JumpeakRecord::Create([]);
+            $save = JumpeakRecord::Create([
+                'amount' => request()->amount,
+                'type' => request()->type,
+                'qty' => request()->qty,
+                'full_price' => request()->full_price,
+                'sell_price' => request()->sell_price,
+                'all_owe' => request()->all_owe,
+                'paid' => request()->paid,
+                'going_to_pay' => request()->going_to_pay,
+                'customer_id' => request()->customer_id,
+            ]);
+            if ($save) {
+                return ApiResponse::create_success();
+            } else {
+                return ApiResponse::create_failed();
+            }
         } catch (\Throwable $th) {
-            //throw $th;
+            return $th;
         }
     }
 
