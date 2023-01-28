@@ -26,6 +26,17 @@ class ApiResponse
         );
     }
 
+    public static function create_failed()
+    {
+        return response()->json(
+            [
+                'message' => 'Create failed',
+                'message_kh' => 'ការបង្កើតត្រូវបានបរាជ័យ'
+            ],
+            400
+        );
+    }
+
     public static function not_found()
     {
         return response()->json(
@@ -45,6 +56,18 @@ class ApiResponse
                 'message_kh' => 'ត្រូវបានរកឃើញ'
             ],
             200
+        );
+    }
+
+
+    public static function no_data()
+    {
+        return response()->json(
+            [
+                'message' => 'No Data',
+                'message_kh' => 'មិនមានទិន្ន័យ'
+            ],
+            404
         );
     }
 }

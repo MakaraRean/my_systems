@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JumpeakController;
 use App\Logic\CategoryLogic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ Route::get(
     "get_product",
     [ProductLogic::class, 'get_products']
 );
-Route::get("check_product",[ProductLogic::class, 'check_product']);
+Route::get("check_product", [ProductLogic::class, 'check_product']);
 
 
 Route::prefix('category')->group(function () {
@@ -36,4 +37,16 @@ Route::prefix('category')->group(function () {
         "add",
         [CategoryController::class, 'add']
     );
+});
+
+
+
+// Jumpeak API
+Route::prefix('jumpeak')->group(function () {
+    //Record
+    Route::GET('records', [JumpeakController::class, 'get_record'])->name('get_record');
+    Route::POST('new_record', [JumpeakController::class, 'new_record'])->name('new_record');
+    //Customer
+    Route::GET('customers', [JumpeakController::class, 'get_customer'])->name('get_customer');
+    Route::POST('new_customer', [JumpeakController::class, 'new_customer'])->name('new_customer');
 });
