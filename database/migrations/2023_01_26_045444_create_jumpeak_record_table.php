@@ -24,7 +24,7 @@ return new class extends Migration
             $table->double('paid')->nullable();
             $table->string('going_to_pay')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->foreignId('customer_id')->constrained('jumpeak_customers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('customer_name')->constrained('jumpeak_customers', 'name')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

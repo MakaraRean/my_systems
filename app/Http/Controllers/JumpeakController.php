@@ -28,7 +28,7 @@ class JumpeakController extends Controller
                 'all_owe' => request()->all_owe,
                 'paid' => request()->paid,
                 'going_to_pay' => request()->going_to_pay,
-                'customer_id' => request()->customer_id,
+                'customer_name' => request()->customer_name,
             ]);
             if ($save) {
                 return ApiResponse::create_success();

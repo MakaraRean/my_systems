@@ -17,6 +17,6 @@ class JumpeakRecord extends Model
         'all_owe',
         'paid',
         'going_to_pay',
-        'customer_id'
+        'customer_name'
     ];
 }
