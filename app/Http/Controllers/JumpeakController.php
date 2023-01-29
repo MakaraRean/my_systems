@@ -62,8 +62,15 @@ class JumpeakController extends Controller
     public function get_customer(Request $request)
     {
         $name = $request->query('name');
+        $id = $request->query('id');
         if ($name) {
             $customers = DB::table('jumpeak_customers')->where('is_active', '=', 1)->where('name', 'like', "%{$name}%")->get();
+            if (count($customers))
+                return $customers;
+            return ApiResponse::no_data();
+        }
+        if ($id) {
+            $customers = DB::table('jumpeak_customers')->where('is_active', '=', 1)->where('id', '=', $id)->get();
             if (count($customers))
                 return $customers;
             return ApiResponse::no_data();
