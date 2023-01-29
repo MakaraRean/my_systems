@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jumpeak_customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique(true)->primary();
+            $table->id('name');
             $table->string('address');
             $table->string('phone')->nullable();
             $table->boolean('is_active')->default(true);
