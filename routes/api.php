@@ -45,8 +45,11 @@ Route::prefix('category')->group(function () {
 Route::prefix('jumpeak')->group(function () {
     //Record
     Route::GET('records', [JumpeakController::class, 'get_record'])->name('get_record');
+    Route::POST('records_by_customer', [JumpeakController::class, 'get_record_by_customer_name'])->name('get_record_by_customer_name');
     Route::POST('new_record', [JumpeakController::class, 'new_record'])->name('new_record');
+    Route::POST('delete_record', [JumpeakController::class, 'delete_record'])->name('delete_record');
     //Customer
     Route::GET('customers', [JumpeakController::class, 'get_customer'])->name('get_customer');
     Route::POST('new_customer', [JumpeakController::class, 'new_customer'])->name('new_customer');
+    // Route::GET('customers', [JumpeakController::class, 'get_customer'])->name('get_customer');
 });

@@ -70,4 +70,15 @@ class ApiResponse
             404
         );
     }
+
+    public static function delete_success()
+    {
+        return response()->json(
+            [
+                'message' => 'Delete Success',
+                'message_kh' => 'ទិន្ន័យត្រូវបានលុប'
+            ],
+            200
+        );
+    }
 }
