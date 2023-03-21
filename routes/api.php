@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\JumpeakController;
 use App\Logic\CategoryLogic;
 use Illuminate\Http\Request;
@@ -40,16 +41,18 @@ Route::prefix('category')->group(function () {
 });
 
 
+// Count Visitors
+Route::get('count_visitors', [Controller::class, 'count_visitors'])->name('count_visitors');
+Route::get('get_visitors', [Controller::class, 'get_visitors'])->name('get_visitors');
+
 
 // Jumpeak API
 Route::prefix('jumpeak')->group(function () {
     //Record
     Route::GET('records', [JumpeakController::class, 'get_record'])->name('get_record');
-    Route::POST('records_by_customer', [JumpeakController::class, 'get_record_by_customer_name'])->name('get_record_by_customer_name');
     Route::POST('new_record', [JumpeakController::class, 'new_record'])->name('new_record');
     Route::POST('delete_record', [JumpeakController::class, 'delete_record'])->name('delete_record');
     //Customer
     Route::GET('customers', [JumpeakController::class, 'get_customer'])->name('get_customer');
     Route::POST('new_customer', [JumpeakController::class, 'new_customer'])->name('new_customer');
-    // Route::GET('customers', [JumpeakController::class, 'get_customer'])->name('get_customer');
 });
